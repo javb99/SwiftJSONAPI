@@ -1,3 +1,3 @@
-# JSON-API
+# JSON:API
 
-A description of this package.
+A Swift representation of [JSON:API](https://jsonapi.org) documents.
