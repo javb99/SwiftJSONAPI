@@ -4,29 +4,29 @@
 import PackageDescription
 
 let package = Package(
-    name: "JSON-API",
+    name: "JSONAPI",
     platforms: [
         .iOS(.v13),
         .macOS(.v10_15)
     ],
     products: [
         .library(
-            name: "JSON-API",
-            targets: ["JSON-API"]),
+            name: "JSONAPISpec",
+            targets: ["JSONAPISpec"]),
         .library(
-            name: "CombineJSON-API",
-            targets: ["CombineJSON-API"]),
+            name: "CombineJSONAPI",
+            targets: ["CombineJSONAPI"]),
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "JSON-API",
+            name: "JSONAPISpec",
             dependencies: []),
         .target(
-            name: "CombineJSON-API",
-            dependencies: ["JSON-API"]),
+            name: "CombineJSONAPI",
+            dependencies: ["JSONAPISpec"]),
         .testTarget(
-            name: "JSON-APITests",
-            dependencies: ["JSON-API"]),
+            name: "JSONAPISpecTests",
+            dependencies: ["JSONAPISpec"]),
     ]
 )
