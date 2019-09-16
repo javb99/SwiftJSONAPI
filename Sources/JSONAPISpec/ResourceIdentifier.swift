@@ -31,7 +31,7 @@ public protocol ResourceTypeNameProviding {
 extension ResourceTypeNameProviding {
     
     /// Provide a default that just lowercases the type name.
-    public static var resourceType: String { String(describing: Self.self).lowercased() }
+    public static var resourceType: String { String(describing: Self.self) }
 }
 
 public struct ResourceIdentifier<T: ResourceTypeNameProviding>: ResourceIdentifierType, Codable {
@@ -47,6 +47,19 @@ public struct ResourceIdentifier<T: ResourceTypeNameProviding>: ResourceIdentifi
     public func eraseToAny() -> AnyResourceIdentifier {
         return AnyResourceIdentifier(type: type, id: id)
         //return AnyResourceIdentifier(type: type, id: id, meta: meta)
+    }
+    
+    public static func raw(_ rawID: String) -> Self {
+        Self(id: rawID)
+    }
+}
+
+extension ResourceIdentifier: ExpressibleByStringLiteral {
+    
+    public typealias StringLiteralType = String
+    
+    public init(stringLiteral value: String) {
+        self.init(id: value)
     }
 }
 

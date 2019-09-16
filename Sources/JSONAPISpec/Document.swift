@@ -54,6 +54,39 @@ where Data: Codable,
     /// An object describing the server’s implementation
     public var jsonapi: Spec?
     
+    // MARK: - Initializers
+    // These initializers protect some of the basic integrity of the structure.
+    
+    /// Create a document for data
+    public init(data: Data, included: Included? = nil, links: Links? = nil, meta: Meta? = nil, jsonapi: Spec? = nil) {
+        self.data = data
+        self.errors = nil
+        self.meta = meta
+        self.links = links
+        self.included = included
+        self.jsonapi = jsonapi
+    }
+    
+    /// Create a document for errors.
+    public init(errors: Errors, meta: Meta? = nil, links: Links? = nil, jsonapi: Spec? = nil) {
+        self.data = nil
+        self.errors = errors
+        self.meta = meta
+        self.links = links
+        self.included = nil
+        self.jsonapi = jsonapi
+    }
+    
+    /// Create a document for meta.
+    public init(meta: Meta, jsonapi: Spec? = nil) {
+        self.data = nil
+        self.errors = nil
+        self.meta = meta
+        self.links = nil
+        self.included = nil
+        self.jsonapi = jsonapi
+    }
+    
     // MARK: - Coding Implementation
     
     enum CodingKeys: CodingKey {
