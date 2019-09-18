@@ -8,7 +8,7 @@
 import Foundation
 
 /// A codable type that is just empty. In this library it has the extra meaning of not encoding properties of this type.
-public struct Empty: Codable {
+public struct Empty: Codable, Equatable {
     
     public init(from decoder: Decoder) throws {}
     
