@@ -132,7 +132,7 @@ where Data: Codable,
         }
         
         // If a document does not contain a top-level data key, the included member MUST NOT be present either.
-        guard (data == nil) == (included == nil) else {
+        guard (data != nil) || ((data == nil) && (included == nil)) else {
             throw DocumentError.invalidStructure("If a document does not contain a top-level data key, the included member MUST NOT be present either.")
         }
     }
