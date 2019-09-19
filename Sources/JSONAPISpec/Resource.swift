@@ -7,10 +7,6 @@
 
 import Foundation
 
-public struct ResourceCollection<Type>: Codable where Type: ResourceProtocol {
-    internal var backingStore: Set<Resource<Type>>
-}
-
 //public protocol ResourceIdentifierIndexable {
 //    subscript<T>(id: ResourceIdentifier<T>) -> Resource<T> where T: ResourceProtocol { get }
 //}
