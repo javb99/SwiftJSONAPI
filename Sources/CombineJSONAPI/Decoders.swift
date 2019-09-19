@@ -7,7 +7,7 @@
 
 import Foundation
 import Combine
-import JSON_API
+import JSONAPISpec
 
 extension Publisher where Output == JSONDecoder.Input {
     

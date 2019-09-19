@@ -6,9 +6,10 @@
 //
 
 import XCTest
-@testable import JSON_API
+@testable import JSONAPISpec
 
 struct ResourceList<Type: ResourceProtocol>: DocumentProtocol {
+    
     typealias Data = [Resource<Type>]
     
     typealias Included = Empty
@@ -18,6 +19,8 @@ struct ResourceList<Type: ResourceProtocol>: DocumentProtocol {
     typealias Meta = Empty
     
     typealias Links = Empty
+    
+    typealias Spec = Empty
 }
 
 struct IntList: ResourceProtocol {
@@ -95,8 +98,8 @@ final class ResourceTests: XCTestCase {
     }
     
     func testCodableConformance() {
-        var doc = ResourceCollectionDocument<IntList>()
-        doc.data = [Resource<IntList>]()
+        
+        let doc = ResourceCollectionDocument<IntList>(data: [])
         let data = try! JSONEncoder.init().encode(doc)
         let parsedDoc = try! JSONDecoder.init().decode(ResourceCollectionDocument<IntList>.self, from: data)
         var before = ""
