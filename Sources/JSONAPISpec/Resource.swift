@@ -92,13 +92,13 @@ public struct Resource<Type>: Codable where Type: ResourceProtocol {
     }
     
     /// Give access to the attributes as first class members.
-    subscript<T>(dynamicMember keyPath: WritableKeyPath<Type.Attributes, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: WritableKeyPath<Type.Attributes, T>) -> T {
         get { self.attributes[keyPath: keyPath] }
         set { self.attributes[keyPath: keyPath] = newValue }
     }
     
     /// Give access to the relationships as first class members.
-    subscript<T>(dynamicMember keyPath: WritableKeyPath<Type.Relationships, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: WritableKeyPath<Type.Relationships, T>) -> T {
         get { self.relationships![keyPath: keyPath] }
         set { self.relationships?[keyPath: keyPath] = newValue }
     }
