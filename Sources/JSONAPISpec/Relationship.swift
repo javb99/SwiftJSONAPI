@@ -12,6 +12,6 @@ public struct ToOneRelationship<T>: Codable where T: ResourceProtocol {
 }
 
 public struct ToManyRelationship<T>: Codable where T: ResourceProtocol {
-    public var data: [ResourceIdentifier<T>?]
+    public var data: [ResourceIdentifier<T>]?
 }
 
