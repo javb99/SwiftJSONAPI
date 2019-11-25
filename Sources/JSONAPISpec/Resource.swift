@@ -79,7 +79,7 @@ public struct Resource<Type>: Codable where Type: ResourceProtocol {
         try container.encodeIfPresent(meta, forKey: .meta)
     }
     
-    internal init(identifer: ResourceIdentifier<Type>, links: Type.Links?, relationships: Type.Relationships?, attributes: Type.Attributes, meta: Type.Meta?) {
+    public init(identifer: ResourceIdentifier<Type>, attributes: Type.Attributes, links: Type.Links? = nil, relationships: Type.Relationships? = nil, meta: Type.Meta? = nil) {
         self.identifer = identifer
         self.links = links
         self.relationships = relationships
