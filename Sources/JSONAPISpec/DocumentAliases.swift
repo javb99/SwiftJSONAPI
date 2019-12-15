@@ -8,9 +8,9 @@
 import Foundation
 
 /// A document for an array of resources.
-public typealias ResourceCollectionDocument<Type: ResourceProtocol> = Document<[Resource<Type>], Empty, Empty, CountMeta, Empty, Empty>
+public typealias ResourceCollectionDocument<Type: ResourceProtocol> = Document<[Resource<Type>], Empty, [APIError], CountMeta, Empty, Empty>
 
-public typealias ResourceCollectionIncludesDocument<Type: ResourceProtocol, Includes: Codable> = Document<[Resource<Type>], Includes, Empty, CountMeta, Empty, Empty>
+public typealias ResourceCollectionIncludesDocument<Type: ResourceProtocol, Includes: Codable> = Document<[Resource<Type>], Includes, [APIError], CountMeta, Empty, Empty>
 
 /// A document for a single resource.
-public typealias ResourceDocument<Type: ResourceProtocol> = Document<Resource<Type>, Empty, Empty, Empty, Empty, Empty>
+public typealias ResourceDocument<Type: ResourceProtocol> = Document<Resource<Type>, Empty, [APIError], Empty, Empty, Empty>
